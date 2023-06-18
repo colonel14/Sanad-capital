@@ -1,0 +1,234 @@
+/*=======================================================
+Hero
+=======================================================*/
+.hero {
+  min-height: 77vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--mainColor);
+  border-radius: 0 0 0 250px;
+  position: relative;
+  padding: 165px 0 74px;
+}
+.hero .absolute-svg-one {
+  position: absolute;
+  right: 0;
+  top: 20%;
+}
+
+.hero .absolute-svg-two {
+  position: absolute;
+  left: 0;
+  top: 20%;
+}
+
+.hero .container {
+  width: 60%;
+  margin: 0;
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+.hero__text {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+.hero__text-badge {
+  background: #4bb6ae;
+  padding: 18px;
+  border-radius: 24px 24px 24px 0px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--white);
+}
+.hero__text-title {
+  color: var(--white);
+  line-height: 1.1;
+  font-weight: 700;
+  font-size: 72px;
+  margin: 36px 0 24px;
+}
+.hero__text-subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: #d8e3f8;
+  margin-bottom: 37px;
+}
+
+.primary-btn {
+  padding: 26px 38px;
+}
+
+/*=======================================================
+    Details 
+    =======================================================*/
+.details__main {
+  padding: 86px 0;
+}
+.details__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.details__block {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #5d6a83;
+  padding: 78px 0 116px;
+}
+
+.details__block-title {
+  flex: 1;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 50px;
+  color: var(--grey);
+}
+.details__block-desc {
+  flex: 1;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--mainColor);
+}
+.details__block-desc li {
+  list-style: disc;
+}
+.details__block-desc.skills li {
+  list-style: none;
+  color: #253c64;
+}
+
+/*=======================================================
+    Jobs
+    =======================================================*/
+.jobs {
+  padding: 100px 0;
+}
+
+.jobs__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 45px;
+  margin-bottom: 59px;
+}
+
+.job__header-tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 29px;
+}
+
+.secondary-btn {
+  border: 1px solid var(--grey);
+  color: var(--grey);
+  padding: 26px 38px;
+}
+
+.jobs__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 55px;
+  flex-shrink: 0;
+}
+.job__card {
+  grid-column: span 1;
+  background: rgba(208, 225, 255, 0.3);
+  border-radius: 60px 60px 60px 0px;
+  padding: 58px 54px 50px 71px;
+}
+.job__card-type {
+  color: #2172e2;
+  font-size: var(--fs-600);
+  font-weight: 700;
+}
+
+.job__card-title {
+  color: var(--grey);
+  font-size: 28px;
+  font-weight: 700;
+  margin: 18px 0 20px;
+}
+
+.job__card-details {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--mainColor);
+}
+
+.job__card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 20px;
+  margin-top: 30px;
+}
+.job__card-date {
+  color: var(--grey);
+  font-size: var(--fs-600);
+  font-weight: 700;
+}
+.job__card-link {
+  color: rgba(75, 182, 174, 1);
+  font-size: 24px;
+}
+
+@media screen and (max-width: 991px) {
+  .absolute-svg-one,
+  .absolute-svg-two {
+    width: 30vw;
+  }
+
+  .jobs__cards {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero .container {
+    width: 90%;
+  }
+  .hero {
+    border-radius: 0 0 0 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero__text-title {
+    font-size: 57px;
+    margin-bottom: 32px;
+  }
+  .hero__text-subtitle {
+    font-size: 24px;
+    line-height: 33px;
+  }
+  .details__block {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  .job__header-title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero__text-title {
+    font-size: 38px;
+    margin-bottom: 20px;
+  }
+  .hero__text-subtitle {
+    font-size: 15px;
+    line-height: 28px;
+  }
+  .job__header-title {
+    font-size: 30px;
+  }
+}
