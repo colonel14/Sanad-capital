@@ -1,15 +1,28 @@
+"use client";
 import styles from "@/styles/Contact.module.css";
+import { staggerContainer, zoomIn } from "@/utils/motion";
+import { motion } from "framer-motion";
+
 export default function ContactHero() {
   return (
-    <section className={styles.hero}>
+    <motion.section
+      className={styles.hero}
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.25 }}
+    >
       <div className={styles.container}>
-        <div className={styles["contact-title"]}>
+        <motion.div
+          className={styles["contact-title"]}
+          variants={zoomIn(0, 0.4)}
+        >
           <h1>
             للإستفســـارات
             <br />
             تواصــــــــل معنا
           </h1>
-        </div>
+        </motion.div>
 
         <form className={styles.contact__form}>
           <div className={styles.form__row}>
@@ -83,6 +96,6 @@ export default function ContactHero() {
           </div>
         </form>
       </div>
-    </section>
+    </motion.section>
   );
 }

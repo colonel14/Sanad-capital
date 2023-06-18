@@ -3,6 +3,8 @@ import { inverstorItems, investorSteps } from "@/constants";
 import { formatNumber } from "../terms/page";
 import styles from "@/styles/Investor.module.css";
 import StepItem from "@/components/UI/StepItem";
+import { motion } from "framer-motion";
+import { fadeIn, staggerContainer } from "@/utils/motion";
 
 export default function Investor() {
   console.log(styles);
@@ -24,21 +26,31 @@ export default function Investor() {
             ))}
           </div>
 
-          <section className={styles.steps}>
+          <motion.section
+            className={styles.steps}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.25 }}
+          >
             <h2 className={styles["steps-title"]}>معلومات هامة للمستثمر</h2>
 
             <div className="timeline">
               {investorSteps.map((step, idx) => (
-                <StepItem
+                <motion.div
                   key={idx}
-                  title={step.title}
-                  desc={step.desc}
-                  isList={true}
-                  num={idx}
-                />
+                  variants={fadeIn("left", "tween", 0.1 * idx, 0.4)}
+                >
+                  <StepItem
+                    title={step.title}
+                    desc={step.desc}
+                    isList={true}
+                    num={idx}
+                  />
+                </motion.div>
               ))}
             </div>
-          </section>
+          </motion.section>
         </div>
       </div>
     </div>

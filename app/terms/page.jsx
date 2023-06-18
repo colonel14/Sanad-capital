@@ -1,56 +1,111 @@
 "use client";
+import { useRef, useState } from "react";
 import { termsTabsContent, termsTabsItems } from "@/constants";
-import "@/styles/terms.css";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import styles from "@/styles/Terms.module.css";
+import { motion, useCycle } from "framer-motion";
 import { slideIn, staggerContainer, zoomIn } from "@/utils/motion";
+import { AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 
 export const formatNumber = (num) => {
   return num.toString().padStart(2, "0");
 };
 
+const MenuVariants = {
+  open: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+};
+const variants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 },
+    },
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+  },
+};
+
+const tabContentVariant = {
+  active: {
+    display: "block",
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+  inactive: {
+    display: "none",
+  },
+};
+
 export default function Terms() {
   const [selectedItem, setSelectedItem] = useState(0);
-
+  const [isOpen, toggleOpen] = useCycle(false, true);
+  const containerRef = useRef(null);
   return (
-    <main class="terms__main">
-      <div class="container">
-        <section class="terms__header">
+    <main className={styles.terms__main}>
+      <div className={styles.container}>
+        <section className={styles.terms__header}>
           <h2>الشروط والأحكام</h2>
-          <div class="terms__search">
+          <div className={styles.terms__search}>
             <form>
               <input
                 placeholder="البحث"
-                class="terms__search-input"
+                className={styles["terms__search-input"]}
                 name="search"
               />
-              <button type="submit" class="terms__search-btn">
-                <i class="fa-solid fa-magnifying-glass"></i>
+              <button type="submit" className={styles["terms__search-btn"]}>
+                <AiOutlineSearch />
               </button>
             </form>
           </div>
         </section>
 
-        <div class="terms__body">
-          <ul role="tablist" class="aside__tabs-mobile tabs__group">
-            <div class="aside-close">
-              <i class="fa fa-times"></i>
+        <motion.div
+          className={styles.terms__body}
+          initial={false}
+          animate={isOpen ? "open" : "closed"}
+          ref={containerRef}
+        >
+          <motion.ul
+            role="tablist"
+            className={`${styles["aside__tabs-mobile"]} ${
+              isOpen ? styles.collapse : ""
+            } ${styles.tabs__group}`}
+            variants={MenuVariants}
+          >
+            <div className={styles["aside-close"]} onClick={() => toggleOpen()}>
+              <AiOutlineClose />
             </div>
             {termsTabsItems.map((tab, idx) => (
-              <li key={idx}>
+              <motion.li key={idx} variants={variants}>
                 <button
                   role="tab"
                   aria-selected={selectedItem == idx ? true : false}
                   aria-controls={`tabpanel-${idx + 1}`}
                   onClick={() => setSelectedItem(idx)}
-                  className={`tab ${selectedItem == idx ? "active" : ""}`}
+                  className={` ${styles.tab} tab ${
+                    selectedItem == idx ? styles.active : ""
+                  }`}
                 >
                   {tab.name}
                 </button>
-              </li>
+              </motion.li>
             ))}
-          </ul>
-          <ul role="tablist" class="aside__tabs tabs__group">
+          </motion.ul>
+          <ul
+            role="tablist"
+            className={`${styles.aside__tabs} ${styles.tabs__group}`}
+          >
             {termsTabsItems.map((tab, idx) => (
               <li key={idx}>
                 <button
@@ -58,7 +113,9 @@ export default function Terms() {
                   aria-selected={selectedItem == idx ? true : false}
                   aria-controls={`tabpanel-${idx + 1}`}
                   onClick={() => setSelectedItem(idx)}
-                  className={`tab ${selectedItem == idx ? "active" : ""}`}
+                  className={`${styles.tab} tab ${
+                    selectedItem == idx ? styles.active : ""
+                  }`}
                 >
                   {tab.name}
                 </button>
@@ -67,40 +124,44 @@ export default function Terms() {
           </ul>
 
           <motion.div
-            className="terms__inner"
+            className={styles.terms__inner}
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.25 }}
           >
-            <div className="aside-open">
-              <i className="fa fa-bars"></i>
+            <div className={styles["aside-open"]} onClick={() => toggleOpen()}>
+              <AiOutlineMenu />
             </div>
-            <h3 className="tab__content-title">
+            <h3 className={styles["tab__content-title"]}>
               {termsTabsItems[selectedItem].name}
             </h3>
             {termsTabsContent.map((content, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className={`tab__content ${
-                  selectedItem == idx ? "active fade-in" : ""
-                }`}
+                role="tabpanel"
+                className={`${styles.tab__content} ${
+                  selectedItem == idx ? `${styles.active}` : ""
+                } fade-in`}
+                variants={tabContentVariant}
+                animate={selectedItem == idx ? "active" : "inactive"}
+                initial="inactive"
               >
-                <div className="terms__cards">
+                <motion.div className={styles.terms__cards}>
                   {content.map((item, index) => (
-                    <div key={index} className="term__box">
-                      <span className="term__box-num">
+                    <div key={index} className={styles.term__box}>
+                      <span className={styles["term__box-num"]}>
                         {formatNumber(index + 1)}
                       </span>
-                      <h3 className="term__box-title">{item.title}</h3>
-                      <p className="term__box-details">{item.desc}</p>
+                      <h3 className={styles["term__box-titl"]}>{item.title}</h3>
+                      <p className={styles["term__box-detail"]}>{item.desc}</p>
                     </div>
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </main>
   );

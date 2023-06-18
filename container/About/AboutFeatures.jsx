@@ -1,11 +1,23 @@
+"use client";
 import styles from "@/styles/About.module.css";
+import { fadeIn, staggerContainer, zoomIn } from "@/utils/motion";
+import { motion } from "framer-motion";
 
 export default function AboutFeatures() {
   return (
-    <section className={styles.features}>
+    <motion.section
+      className={styles.features}
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.25 }}
+    >
       <div className={styles.container}>
         <div className={styles.features__inner}>
-          <div className={styles.features__text}>
+          <motion.div
+            className={styles.features__text}
+            variants={zoomIn(0.1, 0.4)}
+          >
             <h2 className={styles["features__text-title"]}>
               الشعار الأساسي الذي يدفع
               <br />
@@ -15,9 +27,12 @@ export default function AboutFeatures() {
               تمويل واستثمار متقدم يدعم النجاح والتميز حين نهدف إلى تسهيل الفرص
               والاستثمار لمختلف الأطراف، بما في ذلك المستثمرين وطالبي التمويل
             </p>
-          </div>
+          </motion.div>
           <div className={styles.features__cards}>
-            <div className={styles.feat__box}>
+            <motion.div
+              className={styles.feat__box}
+              variants={fadeIn("up", "tween", 0.2, 1)}
+            >
               <div className={styles["feat__box-num"]}>01</div>
               <h3 className={styles["feat__box-title"]}>
                 العمل بروح الفريق الواحد
@@ -26,8 +41,11 @@ export default function AboutFeatures() {
                 نؤمن بأهمية العمل الجماعي والتعاون المثمر بين جميع أفراد فريقنا.
                 نعمل معًا بروح الشراكة والتفاعل لتحقيق النجاح المشترك
               </p>
-            </div>
-            <div className={styles.feat__box}>
+            </motion.div>
+            <motion.div
+              className={styles.feat__box}
+              variants={fadeIn("up", "tween", 0.2, 1)}
+            >
               <div className={styles["feat__box-num"]}>02</div>
               <h3 className={styles["feat__box-title"]}>الشفافية</h3>
               <p className={styles["feat__box-details"]}>
@@ -35,8 +53,11 @@ export default function AboutFeatures() {
                 دقيقة وشفافة لعملائنا وشركائنا، ونتفهم أنها أساس الثقة والتعاون
                 المستدام
               </p>
-            </div>
-            <div className={styles.feat__box}>
+            </motion.div>
+            <motion.div
+              className={styles.feat__box}
+              variants={fadeIn("up", "tween", 0.2, 1)}
+            >
               <div className={styles["feat__box-num"]}>03</div>
               <h3 className={styles["feat__box-title"]}>الابتكار</h3>
               <p className={styles["feat__box-details"]}>
@@ -44,8 +65,11 @@ export default function AboutFeatures() {
                 ونشجع الابتكار والأفكار الجديدة لتلبية احتياجات عملائنا ومواكبة
                 التطورات في عالم الأعمال المالية
               </p>
-            </div>
-            <div className={styles.feat__box}>
+            </motion.div>
+            <motion.div
+              className={styles.feat__box}
+              variants={fadeIn("up", "tween", 0.2, 1)}
+            >
               <div className={styles["feat__box-num"]}>04</div>
               <h3 className={styles["feat__box-title"]}>الالتزام</h3>
               <p className={styles["feat__box-details"]}>
@@ -54,8 +78,11 @@ export default function AboutFeatures() {
                 ونجاح مستدام لعملائنا من خلال دراسة الفرص الاستثمارية و تحديد
                 المخاطر و اعدادها من قبل فريق إتمان متخصص
               </p>
-            </div>
-            <div className={styles.feat__box}>
+            </motion.div>
+            <motion.div
+              className={styles.feat__box}
+              variants={fadeIn("up", "tween", 0.2, 1)}
+            >
               <div className={styles["feat__box-num"]}>05</div>
               <h3 className={styles["feat__box-title"]}>تصريح بممارسة العمل</h3>
               <p className={styles["feat__box-details"]}>
@@ -63,8 +90,11 @@ export default function AboutFeatures() {
                 نحرص على ضمان سلامة وشفافية جميع أعمالنا وأنشطتنا لضمان مطابقة
                 نشاط الشركة مع البيئه و اشتراطات هيئه سوق المالية
               </p>
-            </div>
-            <div className={styles.feat__box}>
+            </motion.div>
+            <motion.div
+              className={styles.feat__box}
+              variants={fadeIn("up", "tween", 0.2, 1)}
+            >
               <div className={styles["feat__box-num"]}>06</div>
               <h3 className={styles["feat__box-title"]}>الشريعة الاسلامية</h3>
               <p className={styles["feat__box-details"]}>
@@ -73,13 +103,16 @@ export default function AboutFeatures() {
                 جميع جوانب عملنا. نقدم خدمات مالية متوافقة مع المبادئ الشرعية،
                 مما يضمن أن عملائنا يستفيدون من حلول تمويلية شرعية ومتوافقة
               </p>
-            </div>
+            </motion.div>
           </div>
-          <a href="contact.html" className="primary-btn">
+          <a
+            href="contact.html"
+            className={`${styles["primary-btn"]} primary-btn`}
+          >
             تواصل معنا
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

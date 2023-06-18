@@ -1,7 +1,10 @@
 /*================================
   nav 
   =====================================*/
-
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
 .terms__main {
   padding: 153px 0 0 0;
   position: relative;
@@ -38,8 +41,8 @@
 }
 
 /* .terms__search-input:focus {
-    text-align: right;
-  } */
+      text-align: right;
+    } */
 .terms__search-input::placeholder {
   color: #314b79;
   font-size: var(--fs-600);
@@ -147,15 +150,43 @@
   position: absolute;
   top: 25px;
   font-size: 28px;
+  cursor: pointer;
 }
 .aside-close {
   align-self: flex-start;
   font-size: 25px;
   margin: 0 12px 20px 0;
+  cursor: pointer;
 }
 .aside__tabs-mobile.collapse {
   opacity: 1;
   visibility: visible;
   transform: translate(0, 0);
   box-shadow: 0px 3px 13px 1px rgb(0 0 0 / 20%);
+}
+
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+@media (max-width: 1200px) {
+  .aside-open {
+    display: block;
+  }
+  .aside__tabs {
+    display: none;
+  }
+  .terms__inner {
+    padding: 0;
+  }
+  .tab__content-title {
+    margin: 0 61px 41px 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .terms__cards {
+    display: flex;
+    flex-direction: column;
+  }
 }

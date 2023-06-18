@@ -310,6 +310,9 @@ input {
 .nav.nav-secondary .links li a {
   color: var(--grey);
 }
+.nav.nav-secondary .links li.active a {
+  color: var(--secondColor);
+}
 .nav.nav-secondary .secondary-btn {
   background-color: transparent;
   border: 1px solid var(--grey);
@@ -755,6 +758,20 @@ copyright
 /*=======================================================
 Respnosive
 =======================================================*/
+@media (max-width: 1300px) {
+  .nav .toggle {
+    display: block;
+  }
+  .nav .links {
+    display: none;
+  }
+  .links-mobile.collapse {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+    box-shadow: 0px 3px 13px 1px rgb(0 0 0 / 20%);
+  }
+}
 
 @media screen and (max-width: 991px) {
   .hero__text-title {

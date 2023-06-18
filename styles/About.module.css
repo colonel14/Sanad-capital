@@ -153,7 +153,7 @@
 .mission__placeholder .absolute-svg-two {
   position: absolute;
   bottom: -43%;
-  right: -14%;
+  right: 6%;
   z-index: 1;
   max-width: 100%;
 }
@@ -397,7 +397,7 @@
     flex-direction: column;
   }
   .hero__text {
-    width: 70vw;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
   }
@@ -465,6 +465,9 @@
 }
 
 @media screen and (max-width: 767px) {
+  .hero__text p {
+    font-size: 25px;
+  }
   .features__text-title {
     font-size: 40px;
   }
@@ -473,6 +476,10 @@
   }
 }
 @media screen and (max-width: 500px) {
+  .hero__text p {
+    font-size: 18px;
+    line-height: 33px;
+  }
   .mission__text-title {
     font-size: 40px;
   }

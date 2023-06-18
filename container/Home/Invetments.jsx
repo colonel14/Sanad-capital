@@ -10,10 +10,10 @@ function Invetments() {
   const scroll = (direction) => {
     const { current } = scrollRef;
     if (direction === "left") {
-      current.scrollLeft -= 100;
+      current.scrollLeft -= 300;
       console.log("left");
     } else {
-      current.scrollLeft += 100;
+      current.scrollLeft += 300;
       console.log("right");
     }
   };

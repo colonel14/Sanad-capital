@@ -2,6 +2,8 @@
 
 import { teamsData } from "@/constants";
 import styles from "@/styles/About.module.css";
+import { fadeIn, staggerContainer, zoomIn } from "@/utils/motion";
+import { motion } from "framer-motion";
 export default function Teams() {
   return (
     <section className={styles.teams}>
@@ -16,13 +18,20 @@ export default function Teams() {
             ومالية عالية الجودة وتحقيق نجاحات مستدامة لشركتكم
           </p>
         </div>
-        <div className={styles.teams__cards}>
+        <motion.div
+          className={styles.teams__cards}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+        >
           {teamsData.map((member, idx) => (
-            <div
+            <motion.div
               key={idx}
               className={`${styles.member__box} ${styles.member} ${
                 styles[member.theme]
               }`}
+              variants={fadeIn("up", "tween", 0.2 * idx, 1)}
             >
               <div className={styles["member__box-image"]}></div>
               <div className={styles["member__box-header"]}>
@@ -45,9 +54,9 @@ export default function Teams() {
                 </div>
               </div>
               <div className={styles["member__box-details"]}>{member.desc}</div>
-            </div>
+            </motion.div>
           ))}
-          <div className={styles.join__box}>
+          <motion.div className={styles.join__box} variants={zoomIn(0.6, 0.4)}>
             <img
               src="/assets/svg/I10.svg"
               alt=""
@@ -64,11 +73,11 @@ export default function Teams() {
             <p className={styles["join__box-subtitle"]}>
               بيئة عمل متكاملة للتطوير و الابتكار مع رواتب مجزية
             </p>
-            <a href="#" className="primary-btn">
+            <a href="#" className={`${styles["primary-btn"]} primary-btn`}>
               انضم إلينا
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

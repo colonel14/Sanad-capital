@@ -1,13 +1,26 @@
-import React from "react";
+"use client";
 import styles from "@/styles/About.module.css";
 import Heading from "@/components/UI/Heading";
+import { motion } from "framer-motion";
+import { slideIn, staggerContainer, zoomIn } from "@/utils/motion";
+import CountTo from "@/components/UI/CountTo";
+
 export default function AboutHero() {
   return (
     <>
-      <section className={styles.hero}>
+      <motion.section
+        className={styles.hero}
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
+      >
         <div className={styles.container}>
           <div className={styles.hero__inner}>
-            <div className={styles.hero__text}>
+            <motion.div
+              className={styles.hero__text}
+              variants={slideIn("right", "tween", 0, 0.4)}
+            >
               <Heading
                 title="من نحن"
                 subtitle="    شركة سند المالية شركة تقنية مالية متخصصة بطرح أدوات الدين
@@ -26,54 +39,68 @@ export default function AboutHero() {
                   alt="capital market authority logo"
                 />
               </div>
-            </div>
+            </motion.div>
             <div className={styles.hero__placeholder}>
-              <img
+              <motion.img
                 src="/assets/svg/I7.svg"
                 alt=""
                 className={styles["absolute-svg-one"]}
+                variants={zoomIn(0.3, 0.4)}
               />
-              <img
+              <motion.img
                 src="/assets/images/about-image.jpg"
                 className="hero__placeholder-image"
+                variants={zoomIn(0.1, 0.4)}
               />
-              <img
+              <motion.img
                 src="/assets/svg/I6.svg"
                 alt=""
                 className={styles["absolute-svg-two"]}
+                variants={zoomIn(0.3, 0.4)}
               />
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
       <section className={styles.stats}>
         <div className={styles.container}>
           <div className={styles.stats__inner}>
             <div className={styles.stat__item}>
               <div>
                 <small>m</small>
-                <span className={styles["stat__item-num"]}>150</span>
+                <span className={styles["stat__item-num"]}>
+                  {" "}
+                  <CountTo start={0} end={150} />
+                </span>
               </div>
               <h4 className={styles["stat__item-title"]}>أرباح موزعة</h4>
             </div>
             <div className={styles.stat__item}>
               <div>
                 <small>+</small>
-                <span className={styles["stat__item-num"]}>200</span>
+                <span className={styles["stat__item-num"]}>
+                  <CountTo start={0} end={200} />
+                </span>
               </div>
               <h4 className={styles["stat__item-title"]}>فرص ناجحة</h4>
             </div>
             <div className={styles.stat__item}>
               <div>
                 <small>m</small>
-                <span className={styles["stat__item-num"]}>150</span>
+                <span className={styles["stat__item-num"]}>
+                  {" "}
+                  <CountTo start={0} end={150} />
+                </span>
               </div>
               <h4 className={styles["stat__item-title"]}>قيمة الفرص</h4>
             </div>
             <div className={styles.stat__item}>
               <div>
                 <small>+</small>
-                <span className={styles["stat__item-num"]}>200</span>
+                <span className={styles["stat__item-num"]}>
+                  {" "}
+                  <CountTo start={0} end={200} />
+                </span>
               </div>
               <h4 className={styles["stat__item-title"]}>فرص استثمـارية</h4>
             </div>
