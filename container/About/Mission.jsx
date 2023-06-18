@@ -10,7 +10,7 @@ export default function Mission() {
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.25 }}
     >
       <div className={styles.container}>
         <div className={styles.mission__wrapper}>

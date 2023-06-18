@@ -18,18 +18,18 @@ export default function Footer() {
           whileInView="show"
           viewport={{ once: false, amount: 0.25 }}
         >
-          <div class="container">
-            <div class="contact">
-              <div class="contact__text">
+          <div className="container">
+            <div className="contact">
+              <div className="contact__text">
                 <h2>
                   اﺳﺘﻨــﺪ ﻋﻠﻰ ﺷــــــــﺮﻳﻚ
                   <br /> ﻳﻔﻬﻤــﻚ
                   <br />
                   تواصل معنا الآن
                 </h2>
-                <div class="btns__group">
-                  <button class="secondary-btn">خدمتنا</button>
-                  <a href="contact.html" class="primary-btn">
+                <div className="btns__group">
+                  <button className="secondary-btn">خدمتنا</button>
+                  <a href="contact.html" className="primary-btn">
                     تواصل معنا
                   </a>
                 </div>
@@ -39,17 +39,17 @@ export default function Footer() {
           <motion.img
             src="/assets/svg/I3.svg"
             alt=""
-            class="absolute-svg-one"
+            className="absolute-svg-one"
             variants={zoomIn(0.1, 0.3)}
           />
         </motion.div>
       )}
       <div id="footer__middle">
-        <div class="container">
-          <h4 class="footer__title">الروابط</h4>
-          <div class="footer__row">
-            <div class="footer__column">
-              <ul class="footer__links">
+        <div className="container">
+          <h4 className="footer__title">الروابط</h4>
+          <div className="footer__row">
+            <div className="footer__column">
+              <ul className="footer__links">
                 <li>
                   <Link href="/">الصفحة الرئيسية</Link>
                 </li>
@@ -73,8 +73,8 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div class="footer__column">
-              <ul class="footer__links">
+            <div className="footer__column">
+              <ul className="footer__links">
                 <li>
                   <a href="/"> تسجيل الدخول</a>
                 </li>
@@ -98,12 +98,12 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div class="footer__column">
-              <h4 class="footer__title">تابعنا</h4>
-              <ul class="footer__social">
+            <div className="footer__column">
+              <h4 className="footer__title">تابعنا</h4>
+              <ul className="footer__social">
                 <li>
                   <a href="/">
-                    <div class="social-icon twitter">
+                    <div className="social-icon twitter">
                       <Image
                         width={40}
                         height={40}
@@ -116,7 +116,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a href="/">
-                    <div class="social-icon instagram">
+                    <div className="social-icon instagram">
                       <Image
                         width={40}
                         height={40}
@@ -129,7 +129,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a href="/">
-                    <div class="social-icon linkedin">
+                    <div className="social-icon linkedin">
                       <Image
                         width={40}
                         height={40}
@@ -146,13 +146,13 @@ export default function Footer() {
         </div>
       </div>
       <div id="footer__bottom">
-        <div class="container">
-          <div class="footer__bottom-inner">
-            <h3 class="footer__desc">
+        <div className="container">
+          <div className="footer__bottom-inner">
+            <h3 className="footer__desc">
               شركة سند المالية شركة ذات مسئولية محدودة حاصلة على ترخيص من هيئة
               السوق المالية للممارسة نشاط طرح أدوات الدين و الاستثمار فيها
             </h3>
-            <div class="fotoer__logos">
+            <div className="fotoer__logos">
               <Image
                 width={52}
                 height={52}
@@ -169,7 +169,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div class="copyright">
+      <div className="copyright">
         <Image
           width={231}
           height={60}

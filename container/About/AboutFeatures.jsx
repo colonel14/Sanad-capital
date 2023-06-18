@@ -1,19 +1,20 @@
 "use client";
 import styles from "@/styles/About.module.css";
-import { fadeIn, staggerContainer, zoomIn } from "@/utils/motion";
+import { fadeIn, slideIn, staggerContainer, zoomIn } from "@/utils/motion";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function AboutFeatures() {
   return (
-    <motion.section
-      className={styles.features}
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: false, amount: 0.25 }}
-    >
+    <motion.section className={styles.features}>
       <div className={styles.container}>
-        <div className={styles.features__inner}>
+        <motion.div
+          className={styles.features__inner}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           <motion.div
             className={styles.features__text}
             variants={zoomIn(0.1, 0.4)}
@@ -31,7 +32,7 @@ export default function AboutFeatures() {
           <div className={styles.features__cards}>
             <motion.div
               className={styles.feat__box}
-              variants={fadeIn("up", "tween", 0.2, 1)}
+              variants={slideIn("up", "tween", 0.2, 0.4)}
             >
               <div className={styles["feat__box-num"]}>01</div>
               <h3 className={styles["feat__box-title"]}>
@@ -44,7 +45,7 @@ export default function AboutFeatures() {
             </motion.div>
             <motion.div
               className={styles.feat__box}
-              variants={fadeIn("up", "tween", 0.2, 1)}
+              variants={slideIn("up", "tween", 0.2, 0.4)}
             >
               <div className={styles["feat__box-num"]}>02</div>
               <h3 className={styles["feat__box-title"]}>الشفافية</h3>
@@ -56,7 +57,7 @@ export default function AboutFeatures() {
             </motion.div>
             <motion.div
               className={styles.feat__box}
-              variants={fadeIn("up", "tween", 0.2, 1)}
+              variants={slideIn("up", "tween", 0.2, 0.4)}
             >
               <div className={styles["feat__box-num"]}>03</div>
               <h3 className={styles["feat__box-title"]}>الابتكار</h3>
@@ -68,7 +69,7 @@ export default function AboutFeatures() {
             </motion.div>
             <motion.div
               className={styles.feat__box}
-              variants={fadeIn("up", "tween", 0.2, 1)}
+              variants={slideIn("up", "tween", 0.2, 0.4)}
             >
               <div className={styles["feat__box-num"]}>04</div>
               <h3 className={styles["feat__box-title"]}>الالتزام</h3>
@@ -81,7 +82,7 @@ export default function AboutFeatures() {
             </motion.div>
             <motion.div
               className={styles.feat__box}
-              variants={fadeIn("up", "tween", 0.2, 1)}
+              variants={slideIn("up", "tween", 0.2, 0.4)}
             >
               <div className={styles["feat__box-num"]}>05</div>
               <h3 className={styles["feat__box-title"]}>تصريح بممارسة العمل</h3>
@@ -93,7 +94,7 @@ export default function AboutFeatures() {
             </motion.div>
             <motion.div
               className={styles.feat__box}
-              variants={fadeIn("up", "tween", 0.2, 1)}
+              variants={slideIn("up", "tween", 0.2, 0.4)}
             >
               <div className={styles["feat__box-num"]}>06</div>
               <h3 className={styles["feat__box-title"]}>الشريعة الاسلامية</h3>
@@ -105,13 +106,13 @@ export default function AboutFeatures() {
               </p>
             </motion.div>
           </div>
-          <a
-            href="contact.html"
+          <Link
+            href="/contact"
             className={`${styles["primary-btn"]} primary-btn`}
           >
             تواصل معنا
-          </a>
-        </div>
+          </Link>
+        </motion.div>
       </div>
     </motion.section>
   );

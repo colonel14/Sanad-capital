@@ -4,13 +4,13 @@ import { staggerContainer, zoomIn } from "@/utils/motion";
 export default function Risks() {
   return (
     <section
-      class="risk"
+      className="risk"
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
     >
-      <div class="container">
+      <div className="container">
         <h3>المخاطر</h3>
         <h4>
           للاستثمار متلازمة دائمة وهي الخطر، ومن المخاطر التي قد يتعرض لها
@@ -22,7 +22,7 @@ export default function Risks() {
       <motion.img
         src="/assets/svg/I3.svg"
         alt="shape"
-        class="svg-bg"
+        className="svg-bg"
         variants={zoomIn(0.1, 0.3)}
       />
     </section>

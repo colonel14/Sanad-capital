@@ -182,12 +182,12 @@ function Invetments() {
           </div>
         </div>
       </div>
-      <div class="btns-mobile hidden">
-        <button class="primary-arrow-btn">
-          <i class="fas fa-arrow-right"></i>
+      <div className="btns-mobile hidden">
+        <button className="primary-arrow-btn">
+          <i className="fas fa-arrow-right"></i>
         </button>
-        <button class="secondary-arrow-btn">
-          <i class="fas fa-arrow-left"></i>
+        <button className="secondary-arrow-btn">
+          <i className="fas fa-arrow-left"></i>
         </button>
       </div>
     </section>

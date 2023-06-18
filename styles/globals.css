@@ -60,6 +60,11 @@
 /* =============================
   Scroll animation claesses
   ================================*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .hidden {
   opacity: 0;
   transition: all 0.2s ease-in-out;
@@ -155,6 +160,14 @@ p {
 
 html {
   scroll-behavior: smooth;
+}
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  /* Prevents overflow on the x-axis */
+  overflow-x: hidden;
 }
 
 * {

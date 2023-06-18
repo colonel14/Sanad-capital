@@ -31,7 +31,7 @@ export default function Investor() {
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.25 }}
           >
             <h2 className={styles["steps-title"]}>معلومات هامة للمستثمر</h2>
 
