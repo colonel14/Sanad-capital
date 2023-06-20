@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function AboutFeatures() {
   return (
     <motion.section className={styles.features}>
-      <div className={styles.container}>
+      <div className="container">
         <motion.div
           className={styles.features__inner}
           variants={staggerContainer}

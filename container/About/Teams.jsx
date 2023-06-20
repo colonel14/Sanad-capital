@@ -14,7 +14,7 @@ export default function Teams() {
       whileInView="show"
       viewport={{ once: true, amount: 0.15 }}
     >
-      <div className={styles.container}>
+      <div className="container">
         <motion.div
           className={styles.section__text}
           variants={zoomIn(0.1, 0.4)}

@@ -21,7 +21,7 @@ export default function ContactFaq() {
         className={styles["right-svg"]}
         variants={zoomIn(0.1, 0.4)}
       />
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles["section-title"]}>
           <h1>الأسئلة الشائعة</h1>
         </div>

@@ -2,7 +2,7 @@
 Hero
 =======================================================*/
 .hero {
-  height: 95vh;
+  height: 100vh;
   margin-bottom: 10vh;
   width: 100%;
   display: flex;
@@ -152,6 +152,11 @@ Hero
   display: flex;
   gap: 1.2rem;
   flex-direction: column;
+}
+.investments .card .primary-btn{
+  padding:8px 69px;
+  width: fit-content;
+  margin:0 auto;
 }
 .investments .swiper,
 .investments .swiper-container {
@@ -446,7 +451,8 @@ Hero
 }
 
 .certificates .certif-card .primary-btn {
-  width: 100px;
+ padding: 18px 38px;
+ width: fit-content;
 }
 
 /*=======================================================
@@ -527,7 +533,7 @@ Hero
 
 .risk .container {
   display: flex;
-  padding-left: 50%;
+
   flex-direction: column;
   gap: 2rem;
 }
@@ -536,6 +542,9 @@ Hero
 .risk h4 {
   color: var(--white);
   line-height: 1.3;
+  font-weight: 500;
+  width: 620px;
+  max-width: 100%;
 }
 
 /*=======================================================

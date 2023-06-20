@@ -239,7 +239,6 @@ button {
     background-color 300ms ease, color 300ms ease,
     -webkit-transform 300ms cubic-bezier(0.322, 2.182, 0.713, 2.165);
 
-  transition: all 0.4s;
 }
 button:hover {
   transform: scale3d(1.06, 1.06, 1.01);
@@ -414,6 +413,9 @@ button:hover {
   border: 1px solid var(--grey);
   color: var(--grey);
 }
+.nav.nav-secondary .secondary-btn:hover{
+  color: var(--grey) !important;
+}
 .nav.nav-secondary .toggle {
   color: var(--grey);
 }
@@ -446,10 +448,13 @@ button:hover {
   flex-direction: row;
   gap: 2rem;
 }
-
+.navbar-actions .primary-btn,
+.navbar-actions .secondary-btn{
+  padding:10px 30px;
+}
 .primary-btn,
 .secondary-btn {
-  padding: 10px 30px;
+  padding: 26px 38px;
   border: none;
   border-radius: 50px;
   color: var(--white);
@@ -457,15 +462,19 @@ button:hover {
   font-weight: var(--fw-bold);
   font-family: var(--ff-primary);
   cursor: pointer;
-  transition: var(--transition-time) ease-in-out;
+  transition: 300ms cubic-bezier(0.322, 2.182, 0.713, 2.165),
+  background-color 300ms ease, color 300ms ease,
+  -webkit-transform 300ms cubic-bezier(0.322, 2.182, 0.713, 2.165);
 }
 
 .primary-btn {
   background-color: var(--secondColor);
+  
 }
 
 .primary-btn:hover {
   color: var(--mainColor);
+  transform: scale3d(1.06, 1.06, 1.01);
 }
 
 .secondary-btn {
@@ -476,7 +485,8 @@ button:hover {
 .secondary-btn:hover {
   border: 1px solid var(--secondColor);
   background-color: var(--secondColor);
-  color: white;
+  color: white !important;
+  transform: scale3d(1.06, 1.06, 1.01);
 }
 
 .nav-active .links li a {

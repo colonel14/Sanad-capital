@@ -92,6 +92,7 @@
   font-size: 18px;
   line-height: 1.111em;
   width: 100%;
+  font-family: var(--ff-primary);
 }
 
 .form__textarea {
