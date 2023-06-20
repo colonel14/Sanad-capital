@@ -169,14 +169,16 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="copyright">
-        <Image
-          width={231}
-          height={60}
-          src="/assets/images/sanad-logo.png"
-          alt="logo"
-        />
-        <span>جميع الحقوق محفوظة © شركة سند المالية</span>
+      <div className="container">
+        <div className="copyright">
+          <Image
+            width={231}
+            height={60}
+            src="/assets/images/sanad-logo.png"
+            alt="logo"
+          />
+          <span>جميع الحقوق محفوظة © شركة سند المالية</span>
+        </div>
       </div>
     </footer>
   );

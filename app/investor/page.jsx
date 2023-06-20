@@ -35,7 +35,7 @@ export default function Investor() {
           >
             <h2 className={styles["steps-title"]}>معلومات هامة للمستثمر</h2>
 
-            <div className="timeline">
+            <div className={`${styles.timeline} timeline`}>
               {investorSteps.map((step, idx) => (
                 <motion.div
                   key={idx}

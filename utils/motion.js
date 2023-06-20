@@ -71,7 +71,7 @@ export const zoomIn = (delay, duration) => ({
     scale: 1,
     opacity: 1,
     transition: {
-      type: "tween",
+      type: "spring",
       delay,
       duration,
       ease: "easeOut",

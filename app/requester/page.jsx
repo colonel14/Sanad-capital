@@ -31,7 +31,7 @@ export default function Requester() {
               معلومات هامة للشركات طالبة التمويل
             </h2>
 
-            <div className="timeline">
+            <div className={`${styles.timeline} timeline`}>
               {requesterSteps.map((step, idx) => (
                 <StepItem
                   key={idx}

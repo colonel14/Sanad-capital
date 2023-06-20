@@ -92,7 +92,10 @@ export default function Terms() {
                   role="tab"
                   aria-selected={selectedItem == idx ? true : false}
                   aria-controls={`tabpanel-${idx + 1}`}
-                  onClick={() => setSelectedItem(idx)}
+                  onClick={() => {
+                    setSelectedItem(idx);
+                    toggleOpen();
+                  }}
                   className={` ${styles.tab} tab ${
                     selectedItem == idx ? styles.active : ""
                   }`}

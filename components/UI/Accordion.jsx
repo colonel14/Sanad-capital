@@ -13,11 +13,10 @@ function Accordion({ title, content }) {
     <div className="accordion">
       <h4 className="accordion__header" onClick={toggleAccordion}>
         {title}
-        {isOpen ? (
-          <AiOutlineClose className="accordion__header-icon" />
-        ) : (
-          <AiOutlinePlus className="accordion__header-icon" />
-        )}
+        <div className={`${isOpen ? "active" : ""} accordion__icon-wrapper`}>
+          <div className="accordion-btn-line horizontal"></div>
+          <div className="accordion-btn-line vertical"></div>
+        </div>
       </h4>
 
       <div className={`accordion__content ${isOpen && "open"}`}>
