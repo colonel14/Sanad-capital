@@ -610,13 +610,11 @@ Global Styles
 .timeline {
   position: relative;
 }
-.timeline::before {
-  content: "";
+.timeline-progress {
   position: absolute;
   top: 28px;
   right: 0;
   bottom: 0;
-  height: 80%;
   width: 1px;
   background: #b8c2d5;
   z-index: 1;

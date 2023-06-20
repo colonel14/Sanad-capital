@@ -3,11 +3,18 @@ import { inverstorItems, investorSteps } from "@/constants";
 import { formatNumber } from "../terms/page";
 import styles from "@/styles/Investor.module.css";
 import StepItem from "@/components/UI/StepItem";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/utils/motion";
+import { useRef } from "react";
 
 export default function Investor() {
-  console.log(styles);
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["end end", "start start"],
+  });
+
+  const height = useTransform(scrollYProgress, [0, 1], ["93%", "0%"]);
   return (
     <div className={styles.inverstor__main}>
       <div className="container">
@@ -32,10 +39,15 @@ export default function Investor() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.25 }}
+            ref={targetRef}
           >
             <h2 className={styles["steps-title"]}>معلومات هامة للمستثمر</h2>
 
             <div className={`${styles.timeline} timeline`}>
+              <motion.div
+                className="timeline-progress"
+                style={{ height }}
+              ></motion.div>
               {investorSteps.map((step, idx) => (
                 <motion.div
                   key={idx}

@@ -1,12 +1,20 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/utils/motion";
 import StepItem from "@/components/UI/StepItem";
 export default function HomeSteps() {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["end end", "start start"],
+  });
+
+  const height = useTransform(scrollYProgress, [0, 1], ["80%", "0%"]);
+
   return (
-    <section className="steps">
+    <section className="steps" ref={targetRef}>
       <motion.div
         className="container"
         variants={staggerContainer}
@@ -14,7 +22,7 @@ export default function HomeSteps() {
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
       >
-        <div className="content ">
+        <div className="content">
           <h2>نحرص على منحك تجربة تمويل واستثمار متكاملة ومبسطة</h2>
           <p>
             منصة الكترونية مصرحة من هيئة السوق المالية، ضِمن مُختبر التقنية
@@ -23,7 +31,8 @@ export default function HomeSteps() {
           <button className="primary-btn">تواصل معنا</button>
         </div>
         <div className="timeline">
-          <motion.div variants={fadeIn("left", "tween", 0, 1)}>
+          <motion.div className="timeline-progress" style={{ height }}></motion.div>
+          <motion.div variants={fadeIn("left", "tween", 0, 0.4)}>
             <StepItem
               title="عوائد ثابتة"
               desc="عوائد ثابتة مرتفعة مقارنة بأنواع الاستثمار الأخرى."
@@ -32,7 +41,7 @@ export default function HomeSteps() {
           </motion.div>
           <motion.div
             className="time"
-            variants={fadeIn("left", "tween", 0.4, 1)}
+            variants={fadeIn("left", "tween", 0.4,  0.4)}
           >
             <StepItem
               title="توزيعات دورية للأرباح"
@@ -42,7 +51,7 @@ export default function HomeSteps() {
           </motion.div>
           <motion.div
             className="time"
-            variants={fadeIn("left", "tween", 0.8, 1)}
+            variants={fadeIn("left", "tween", 0.8,  0.4)}
           >
             <StepItem
               title="إجراءات سهلة للتسجيل والاستثمار"
